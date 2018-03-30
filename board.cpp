@@ -175,6 +175,14 @@ void Board::readMap()
   std::ifstream mapFile;
   mapFile.open(mapFilename, std::ios::in);
 
+  if (!mapFile)
+  {
+	  map = "######## @  ^## ^#  ##P#  ###^# @@###^@@E########"; // default map
+	  boardRows = 7;
+	  boardCols = 7;
+	  return;
+  }
+
   boardRows = 0;
   boardCols = 0;
 
